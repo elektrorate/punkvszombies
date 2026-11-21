@@ -60,12 +60,12 @@ export function installRadioKlandestina(hud:HTMLElement=document.body) {
  importer.addEventListener("change",()=>{
   const files=Array.from(importer.files??[]).filter(f=>f.type.startsWith("audio/"));
   if(!files.length)return;
-  audio.pause();audio.removeAttribute("src");urls.forEach(URL.revokeObjectURL);
-  urls=files.map(URL.createObjectURL);tracks=files.map((f,i)=>({title:f.name.replace(/\.[^.]+$/,""),src:urls[i]}));
+  audio.pause();audio.removeAttribute("src");urls.forEach(u=>URL.revokeObjectURL(u));
+  urls=files.map(f=>URL.createObjectURL(f));tracks=files.map((f,i)=>({title:f.name.replace(/\.[^.]+$/,""),src:urls[i]}));
   index=0;load();msg.textContent="Canciones locales cargadas. Pulsa reproducir.";
  });
  audio.addEventListener("ended",()=>void next(true));
  audio.addEventListener("play",render);audio.addEventListener("pause",render);
  load();
- return {audio,open:()=>setOpen(true),close:()=>setOpen(false),dispose:()=>{audio.pause();audio.removeAttribute("src");urls.forEach(URL.revokeObjectURL);document.removeEventListener("keydown",key);overlay.remove();toggle.remove();}};
+ return {audio,open:()=>setOpen(true),close:()=>setOpen(false),dispose:()=>{audio.pause();audio.removeAttribute("src");urls.forEach(u=>URL.revokeObjectURL(u));document.removeEventListener("keydown",key);overlay.remove();toggle.remove();}};
 }
