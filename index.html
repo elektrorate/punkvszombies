@@ -1,6 +1,15 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PUNK GARDEN — Radio Klandestina</title></head>
-<body><main id="demo">
-<h1>PUNK <em>GARDEN</em></h1><p>Prototipo de integración de RADIO KLANDESTINA · El juego completo todavía está en desarrollo.</p>
-<div class="board"><span>ESCENARIO DEL JUEGO — PENDIENTE DE IMPLEMENTAR</span></div>
-</main><script type="module" src="/src/main.ts"></script></body></html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#17141c"><title>PUNK GARDEN · Nivel 1</title></head>
+<body>
+<div id="app">
+<header class="topbar"><div class="brand">PUNK <span>GARDEN</span><small> NIVEL 01 · SECTA K</small></div>
+<div class="status"><span>🍃 HOJAS <b data-leaves>150</b></span><span>OLEADA <b data-wave>1 / 5</b></span><span data-state>PREPARADO</span></div></header>
+<section id="game-area"><div id="game"></div><div id="game-modal"><div class="modal-content"><h2>DEFENDE LA AZOTEA</h2><p>5 carriles · 5 oleadas · Recoge hojas y coloca tus defensores.</p><button>EMPEZAR NIVEL 1</button></div></div></section>
+<nav id="game-hud" aria-label="Panel de unidades"><div class="units">
+<button data-unit="plant">🍃 GENERADORA <small>50 hojas · produce 25 / 8 s</small></button>
+<button data-unit="stone">🪨 PIEDRERO <small>50 hojas · doble disparo</small></button>
+<button data-unit="molotov">🔥 MOLOTOV <small>100 hojas · daño en área</small></button>
+<button data-unit="shield">🛡 ESCUDO <small>75 hojas · bloqueo</small></button>
+</div><button data-pause>PAUSA</button></nav>
+<p class="help">Selecciona un defensor y haz clic en una casilla. Haz clic en las hojas verdes para recogerlas. Cada carril tiene una barricada de emergencia.</p>
+</div><script type="module" src="/src/main.ts"></script></body></html>
