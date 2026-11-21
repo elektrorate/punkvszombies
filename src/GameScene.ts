@@ -48,7 +48,7 @@ export class GameScene extends Phaser.Scene {
   this.labels=this.add.text(0,0,"",{fontFamily:"Arial",fontSize:"18px",fontStyle:"bold",color:"#ffffff"}).setDepth(2);
   this.input.on("pointerdown",(pointer:Phaser.Input.Pointer)=>{
    if(this.state!=="playing")return;
-   const wx=pointer.x/this.scale.displayScale.x,wy=pointer.y/this.scale.displayScale.y;
+   const wx=pointer.x,wy=pointer.y;
    const clicked=this.leaves.findIndex(v=>Math.abs(wx-v.x)<29&&Math.abs(wy-v.y)<28);
    if(clicked>=0){this.resources+=this.leaves[clicked].value;this.leaves.splice(clicked,1);this.refreshHUD();return;}
    const col=Math.floor((wx-X)/CW),lane=Math.floor((wy-Y)/CH);
